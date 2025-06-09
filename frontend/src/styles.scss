@@ -1,0 +1,333 @@
+/* src/styles.scss - Versión corregida para Angular 20 */
+
+/* AdminLTE Global Styles - SIN la sintaxis ~ */
+/* Bootstrap ya está incluido en angular.json, no necesitamos importarlo aquí */
+
+/* Font Awesome desde CDN */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Agregar estos estilos al archivo styles.scss después de los estilos existentes */
+/* Compatible con AdminLTE 2 y Bootstrap 3 */
+
+/* Variables de colores para el tema verde */
+$verde-principal: #008d4c;  /* Verde de AdminLTE - mismo color para header y sidebar */
+ /* $verde-oscuro: #008d4c;    Para hover y efectos */
+$verde-oscuro: #008d4c;     /* Para hover y efectos */
+
+$verde-claro: #00c068;
+$texto-blanco: #ffffff;
+$verde-hover: rgba(0, 0, 0, 0.5);  /* Hover con transparencia */
+
+/* ========== PERSONALIZACIÓN DEL HEADER ========== */
+.main-header {
+  /* Logo */
+  .logo {
+    background-color: $verde-principal !important;  /* Mismo verde que el sidebar */
+    color: $texto-blanco !important;
+    border-bottom: 0 solid transparent;
+    
+    &:hover,
+    &:focus {
+      background-color: $verde-principal !important;  /* Mantiene el mismo color */
+      color: $texto-blanco !important;
+      text-decoration: none;
+    }
+    
+    /* Logo mini para sidebar colapsado */
+    .logo-mini {
+      color: $texto-blanco !important;
+    }
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: $verde-principal !important;
+    
+    /* Botón toggle del sidebar */
+    .sidebar-toggle {
+      color: $texto-blanco !important;
+      
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: rgba(0, 0, 0, 0.1) !important;
+        color: $texto-blanco !important;
+      }
+    }
+  }
+  
+  /* Menu personalizado del navbar */
+  .navbar-custom-menu {
+    > .nav > li > a {
+      color: $texto-blanco !important;
+      
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.1) !important;
+        color: $texto-blanco !important;
+      }
+    }
+    
+    /* Dropdown del usuario */
+    .dropdown.user-menu {
+      > .dropdown-toggle {
+        color: $texto-blanco !important;
+        
+        &:hover,
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        > .hidden-xs {
+          color: $texto-blanco !important;
+        }
+      }
+    }
+  }
+}
+
+/* ========== PERSONALIZACIÓN DEL SIDEBAR ========== */
+.main-sidebar,
+.left-side {
+  background-color: $verde-principal !important;  /* Mismo verde que el header */
+  
+  /* Panel de usuario */
+  .user-panel {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    
+    > .info {
+      color: $texto-blanco;
+      
+      > p {
+        color: $texto-blanco;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      
+      > a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        padding-right: 5px;
+        
+        &:hover {
+          color: $texto-blanco;
+        }
+        
+        > .fa,
+        > .ion,
+        > .glyphicon {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+  
+  /* Estilos para el sidebar */
+  .sidebar {
+    /* Menu del sidebar */
+    .sidebar-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      /* Header del menu */
+      > li.header {
+        color: rgba(255, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.2);
+        padding: 10px 25px 10px 15px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      
+      /* Items del menu */
+      > li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        
+        > a {
+          color: rgba(255, 255, 255, 0.9);
+          border-left: 3px solid transparent;
+          display: block;
+          padding: 12px 5px 12px 15px;
+          text-decoration: none;
+          
+          &:hover {
+            background-color: $verde-principal !important;
+            border-left-color: $verde-claro !important;
+            color: $texto-blanco !important;
+          }
+          
+          /* Iconos */
+          > .fa,
+          > .glyphicon,
+          > .ion {
+            width: 20px;
+            color: rgba(255, 255, 255, 0.6);
+          }
+        }
+        
+        /* Items activos */
+        &.active > a {
+          background-color: $verde-principal !important;
+          border-left-color: $verde-claro !important;
+          color: $texto-blanco !important;
+          font-weight: 600;
+        }
+      }
+      
+      /* Treeview */
+      .treeview-menu {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        
+        > li {
+          margin: 0;
+          
+          > a {
+            color: rgba(255, 255, 255, 0.6);
+            padding: 5px 5px 5px 15px;
+            display: block;
+            text-decoration: none;
+            margin-left: 10px;
+            
+            &:hover {
+              color: $texto-blanco !important;
+              background-color: transparent !important;
+            }
+            
+            > .fa,
+            > .glyphicon,
+            > .ion {
+              width: 20px;
+              color: rgba(255, 255, 255, 0.6);
+            }
+          }
+          
+          &.active > a {
+            color: $texto-blanco !important;
+            font-weight: 600;
+          }
+        }
+      }
+      
+      /* Cuando el treeview está abierto */
+      > li.active > .treeview-menu {
+        display: block;
+      }
+      
+      /* Flecha del treeview */
+      > li > a > .pull-right-container {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -7px;
+        
+        > .fa-angle-left,
+        > .fa-angle-down {
+          color: rgba(255, 255, 255, 0.6);
+          transition: transform 0.3s linear;
+        }
+      }
+      
+      > li.active > a > .pull-right-container > .fa-angle-left {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+/* ========== ESTILOS PARA MODO COLAPSADO ========== */
+@media (min-width: 768px) {
+  .sidebar-collapse {
+    .main-sidebar {
+      .sidebar-menu {
+        > li {
+          position: relative;
+          
+          &:hover > a {
+            background-color: $verde-principal !important;
+          }
+          
+          &:hover > a > span {
+            left: 50px;
+            top: 0;
+            position: absolute;
+            background-color: $verde-principal;
+            color: $texto-blanco;
+            padding: 12px 20px;
+            margin-left: -3px;
+            border-radius: 0 4px 4px 0;
+          }
+          
+          &:hover > .treeview-menu {
+            display: block !important;
+            position: absolute;
+            width: 180px;
+            left: 50px;
+            background-color: $verde-oscuro;
+            top: 44px;
+            z-index: 1031;
+            border-radius: 0 4px 4px 4px;
+            box-shadow: 3px 3px 3px rgba(0,0,0,.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ========== AJUSTES ADICIONALES ========== */
+/* Transiciones suaves */
+.main-header .logo,
+.main-header .navbar .sidebar-toggle,
+.sidebar-menu > li > a,
+.navbar-custom-menu > .nav > li > a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Scrollbar personalizada para el sidebar */
+.main-sidebar::-webkit-scrollbar,
+.left-side::-webkit-scrollbar {
+  width: 5px;
+}
+
+.main-sidebar::-webkit-scrollbar-track,
+.left-side::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.main-sidebar::-webkit-scrollbar-thumb,
+.left-side::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Fix para que el dropdown del usuario mantenga los estilos */
+.navbar-custom-menu > .nav > li.dropdown.user-menu {
+  .dropdown-menu {
+    border-top: 3px solid $verde-principal;
+    
+    .user-header {
+      background-color: $verde-principal;
+      color: $texto-blanco;
+      
+      p {
+        color: $texto-blanco;
+        
+        small {
+          color: rgba(255, 255, 255, 0.6);
+        }
+      }
+    }
+  }
+}
+
