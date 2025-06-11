@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Users } from './pages/users/users';
+import { Clientes } from './pages/clientes/clientes';
 //import { UsersComponent } from './pages/users/users.component';
 //import { LoginComponent } from '../auth/login/login.component';
 
@@ -15,7 +16,8 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: Dashboard },
-      { path: 'users', component: Users }
+      { path: 'users', component: Users },
+      { path: 'clientes', component: Clientes }
     ]
   },
   { 
